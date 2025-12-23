@@ -1,0 +1,217 @@
+:root {
+  color-scheme: light;
+  --ink: #1b1d2a;
+  --ink-soft: #434a66;
+  --ink-muted: #6f768d;
+  --cream: #f6f1ea;
+  --accent-a: #f26d5b;
+  --accent-b: #2f8f9d;
+  --accent-c: #f1c97a;
+  --glow: 0 0 24px rgba(242, 109, 91, 0.35);
+  --panel: rgba(255, 255, 255, 0.86);
+  --stroke: rgba(27, 29, 42, 0.16);
+  --headline: #141827;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, "Garamond", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 85% 10%, rgba(241, 201, 122, 0.55), transparent 60%),
+    radial-gradient(circle at 12% 24%, rgba(47, 143, 157, 0.25), transparent 55%),
+    linear-gradient(125deg, #fff4e8, #eef4fb 55%, #f9f1ed 100%);
+  display: grid;
+  place-items: center;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(20, 24, 39, 0.035),
+      rgba(20, 24, 39, 0.035) 6px,
+      transparent 6px,
+      transparent 18px
+    );
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.stage {
+  width: min(1100px, 92vw);
+  display: grid;
+  gap: 18px;
+  padding: 28px 24px 32px;
+  background: var(--panel);
+  border-radius: 28px;
+  border: 1px solid var(--stroke);
+  box-shadow: 0 28px 60px rgba(27, 29, 42, 0.16);
+  animation: rise 700ms ease-out;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(18px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.hud {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  gap: 12px;
+}
+
+.hud > div {
+  padding: 12px 16px;
+  border-radius: 16px;
+  border: 1px solid var(--stroke);
+  background: rgba(255, 255, 255, 0.72);
+  text-align: center;
+}
+
+.center {
+  border: none;
+  background: transparent;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--headline);
+}
+
+.subtitle {
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.label {
+  margin: 0;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-muted);
+}
+
+.score {
+  margin: 8px 0 0;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--headline);
+}
+
+.arena {
+  position: relative;
+  border-radius: 26px;
+  overflow: hidden;
+  border: 1px solid var(--stroke);
+  background: linear-gradient(160deg, #121726, #1c2439 60%, #2a2135 100%);
+  box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.08);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(16, 20, 35, 0.76);
+  backdrop-filter: blur(2px);
+  color: #fff;
+  transition: opacity 200ms ease;
+}
+
+.overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  padding: 26px 30px;
+  border-radius: 18px;
+  text-align: center;
+  width: min(320px, 86vw);
+  box-shadow: var(--glow);
+  animation: pop 600ms ease;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.card h2 {
+  margin: 0 0 10px;
+  font-size: 1.6rem;
+}
+
+.card p {
+  margin: 6px 0;
+}
+
+button {
+  margin-top: 12px;
+  border: none;
+  background: linear-gradient(120deg, var(--accent-a), var(--accent-c));
+  color: #201512;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: var(--glow);
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+.tips {
+  text-align: center;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 760px) {
+  .hud {
+    grid-template-columns: 1fr;
+  }
+
+  .hud > div {
+    text-align: center;
+  }
+}

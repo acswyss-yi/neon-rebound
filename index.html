@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Neon Rebound</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header class="hud">
+        <div>
+          <p class="label">Player One</p>
+          <p class="score" id="scoreLeft">0</p>
+        </div>
+        <div class="center">
+          <h1>Neon Rebound</h1>
+          <p class="subtitle">W/S vs ↑/↓ | First to 7</p>
+        </div>
+        <div>
+          <p class="label">Player Two</p>
+          <p class="score" id="scoreRight">0</p>
+        </div>
+      </header>
+
+      <main class="arena">
+        <canvas id="game" width="920" height="520"></canvas>
+        <div class="overlay" id="overlay">
+          <div class="card">
+            <h2>Ready?</h2>
+            <p>Player One: W/S</p>
+            <p>Player Two: ↑/↓</p>
+            <button id="startBtn">Start</button>
+          </div>
+        </div>
+      </main>
+
+      <footer class="tips">
+        <p>Space to pause | R to restart | Post-match recap after round one</p>
+      </footer>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>
