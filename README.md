@@ -1,9 +1,10 @@
 # Neon Rebound
 
-A stylish two-player browser pong duel with refined visuals, responsive controls, and quick matches.
+A sleek two-player browser-based Pong duel featuring refined neon visuals, ultra-responsive controls, and fast-paced matches designed for quick play sessions.
 
 ## Play
 Open `index.html` in any modern browser.
+
 
 ## Controls
 - Player One: W / S
@@ -12,4 +13,4 @@ Open `index.html` in any modern browser.
 - R: Restart
 
 ## Notes
-First to 7 wins.
+First player to score 7 points wins.
