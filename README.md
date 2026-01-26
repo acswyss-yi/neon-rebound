@@ -4,7 +4,7 @@ A sleek two-player browser-based Pong duel featuring refined neon visuals, ultra
 
 ## Play
 Open `index.html` in any modern browser.
-
+[![GitHub Pages](https://acswyss-yi.github.io/neon-rebound/)
 
 ## Controls
 - Player One: W / S
